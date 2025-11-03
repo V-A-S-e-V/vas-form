@@ -10,16 +10,24 @@ class I18n {
     }
 
     async init() {
-        // Load saved language or use default
-        const savedLocale = localStorage.getItem('preferred-locale');
-        const initialLocale = savedLocale && this.supportedLocales.includes(savedLocale)
-            ? savedLocale
-            : this.defaultLocale;
-
-        await this.setLocale(initialLocale);
+        // Force English on first load, ignore saved preference
+        const isFirstVisit = !localStorage.getItem('hasVisitedBefore');
+        
+        if (isFirstVisit) {
+            // First time visitor - force English
+            localStorage.setItem('hasVisitedBefore', 'true');
+            await this.setLocale('en');
+        } else {
+            // Returning visitor - use saved preference or default to English
+            const savedLocale = localStorage.getItem('preferred-locale');
+            const initialLocale = savedLocale && this.supportedLocales.includes(savedLocale)
+                ? savedLocale
+                : 'en'; // Default to English if no valid saved preference
+    
+            await this.setLocale(initialLocale);
+        }
+        
         this.setupEventListeners();
-
-        // Set default message
         this.setDefaultMessage();
     }
 
