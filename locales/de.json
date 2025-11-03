@@ -1,0 +1,21 @@
+{
+    "registration_title": "VAS Worms Registrierung",
+    "first_name": "Vorname",
+    "last_name": "Nachname",
+    "date_of_birth": "Geburtsdatum",
+    "email": "E-Mail",
+    "phone_number": "Telefonnummer",
+    "nationality": "Nationalität",
+    "gender": "Geschlecht",
+    "male": "Männlich",
+    "female": "Weiblich",
+    "status": "Status",
+    "student": "Student",
+    "worker": "Arbeitnehmer",
+    "university": "Hochschule",
+    "field_of_study": "Studiengang",
+    "profession": "Beruf",
+    "data_protection_text": "Ich stimme zu, dass Fotos von VAS-Veranstaltungen in sozialen Medien veröffentlicht werden dürfen und bestätige, dass ich mindestens 18 Jahre alt bin.",
+    "data_protection_agree": "Ich stimme den Datenschutzbestimmungen zu",
+    "register_button": "Registrieren"
+  }

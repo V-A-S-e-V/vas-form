@@ -1,0 +1,21 @@
+{
+    "registration_title": "VAS Worms Registration",
+    "first_name": "First Name",
+    "last_name": "Last Name",
+    "date_of_birth": "Date of Birth",
+    "email": "Email",
+    "phone_number": "Phone Number",
+    "nationality": "Nationality",
+    "gender": "Gender",
+    "male": "Male",
+    "female": "Female",
+    "status": "Status",
+    "student": "Student",
+    "worker": "Worker",
+    "university": "University",
+    "field_of_study": "Field of Study",
+    "profession": "Profession",
+    "data_protection_text": "I agree that photos from VAS events may be published on social media and confirm I am at least 18 years old.",
+    "data_protection_agree": "I agree to data protection terms",
+    "register_button": "Register"
+  }

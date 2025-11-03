@@ -1,86 +1,148 @@
-<!-- Credit Code html and css https://www.codingnepalweb.com/responsive-registration-form-in-html-css/ -->
-
-
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Responsive Registration Form | CodingLab </title>
+    <title>VAS Worms Registration</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <div class="container">
+        <!-- Language selector -->
+        <div class="language-selector">
+            <label for="languageSelect">Language: </label>
+            <select id="languageSelect">
+                <option value="de">Deutsch</option>
+                <option value="en">English</option>
+                <option value="fr">Français</option>
+            </select>
+        </div>
+
         <!-- Title section -->
-        <div class="title">Registration</div>
+        <div class="title" data-i18n-key="registration_title">VAS Worms Registration</div>
+
         <div class="content">
-            <!-- Registration form -->
-            <form action="#">
+            <form action="#" id="registrationForm">
                 <div class="user-details">
-                    <!-- Input for Full Name -->
                     <div class="input-box">
-                        <span class="details">Full Name</span>
-                        <input type="text" placeholder="Enter your name" required>
+                        <span class="details" data-i18n-key="first_name">First Name</span>
+                        <input type="text" name="first_name" placeholder="Enter your first name" required>
                     </div>
-                    <!-- Input for Username -->
                     <div class="input-box">
-                        <span class="details">Username</span>
-                        <input type="text" placeholder="Enter your username" required>
+                        <span class="details" data-i18n-key="last_name">Last Name</span>
+                        <input type="text" name="last_name" placeholder="Enter your last name" required>
                     </div>
-                    <!-- Input for Email -->
                     <div class="input-box">
-                        <span class="details">Email</span>
-                        <input type="text" placeholder="Enter your email" required>
+                        <span class="details" data-i18n-key="date_of_birth">Date of Birth</span>
+                        <input type="date" name="date_of_birth" required>
                     </div>
-                    <!-- Input for Phone Number -->
                     <div class="input-box">
-                        <span class="details">Phone Number</span>
-                        <input type="text" placeholder="Enter your number" required>
+                        <span class="details" data-i18n-key="email">Email</span>
+                        <input type="email" name="email" placeholder="Enter your email" required>
                     </div>
-                    <!-- Input for Password -->
                     <div class="input-box">
-                        <span class="details">Password</span>
-                        <input type="text" placeholder="Enter your password" required>
+                        <span class="details" data-i18n-key="phone_number">Phone Number</span>
+                        <input type="tel" name="phone_number" placeholder="Enter your number" required>
                     </div>
-                    <!-- Input for Confirm Password -->
                     <div class="input-box">
-                        <span class="details">Confirm Password</span>
-                        <input type="text" placeholder="Confirm your password" required>
+                        <span class="details" data-i18n-key="nationality">Nationality</span>
+                        <input type="text" name="nationality" placeholder="Enter your nationality" required>
                     </div>
                 </div>
-                <div class="gender-details">
-                    <!-- Radio buttons for gender selection -->
-                    <input type="radio" name="gender" id="dot-1">
-                    <input type="radio" name="gender" id="dot-2">
-                    <input type="radio" name="gender" id="dot-3">
-                    <span class="gender-title">Gender</span>
+
+                <!-- Gender section - REQUIRED -->
+                <div class="gender-details" id="genderSection">
+                    <input type="radio" name="gender" id="dot-1" value="male">
+                    <input type="radio" name="gender" id="dot-2" value="female">
+                    <span class="gender-title" data-i18n-key="gender">Gender</span>
                     <div class="category">
-                        <!-- Label for Male -->
                         <label for="dot-1">
                             <span class="dot one"></span>
-                            <span class="gender">Male</span>
+                            <span class="gender" data-i18n-key="male">Male</span>
                         </label>
-                        <!-- Label for Female -->
                         <label for="dot-2">
                             <span class="dot two"></span>
-                            <span class="gender">Female</span>
+                            <span class="gender" data-i18n-key="female">Female</span>
                         </label>
-                        <!-- Label for Prefer not to say -->
-                        <label for="dot-3">
-                            <span class="dot three"></span>
-                            <span class="gender">Prefer not to say</span>
+                    </div>
+                    <div class="radio-error" id="genderError"
+                        style="display: none; color: #ff4444; font-size: 12px; margin-top: 5px;"></div>
+                </div>
+
+                <!-- Status section - REQUIRED -->
+                <div class="status-details" id="statusSection">
+                    <span class="status-title" data-i18n-key="status">Status</span>
+                    <div class="status-category">
+                        <input type="radio" name="status" id="status-1" value="student">
+                        <input type="radio" name="status" id="status-2" value="worker">
+                        <div class="status-options">
+                            <label for="status-1">
+                                <span class="status-dot one"></span>
+                                <span class="status-label" data-i18n-key="student">Student</span>
+                            </label>
+                            <label for="status-2">
+                                <span class="status-dot two"></span>
+                                <span class="status-label" data-i18n-key="worker">Worker</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="radio-error" id="statusError"
+                        style="display: none; color: #ff4444; font-size: 12px; margin-top: 5px;"></div>
+                </div>
+
+                <!-- Remove style="display: none;" from these divs -->
+                <div class="dynamic-details" id="studentFields">
+                    <div class="user-details">
+                        <div class="input-box">
+                            <span class="details" data-i18n-key="university">University</span>
+                            <input type="text" name="university" placeholder="Enter your university">
+                        </div>
+                        <div class="input-box">
+                            <span class="details" data-i18n-key="field_of_study">Field of Study</span>
+                            <input type="text" name="field_of_study" placeholder="Enter your field of study">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dynamic-details" id="workerFields">
+                    <div class="user-details">
+                        <div class="input-box">
+                            <span class="details" data-i18n-key="profession">Profession</span>
+                            <input type="text" name="profession" placeholder="Enter your profession">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="datenschutz-details">
+                    <div class="datenschutz-content">
+                        <p data-i18n-key="data_protection_text">I agree that photos from VAS events may be published on
+                            social media and confirm I am at least 18 years old.</p>
+                        <label class="datenschutz-label">
+                            <input type="checkbox" name="datenschutz" required>
+                            <span data-i18n-key="data_protection_agree">I agree to data protection terms</span>
                         </label>
                     </div>
                 </div>
-                <!-- Submit button -->
+
+                <!-- Message placeholder -->
+                <div id="messagePlaceholder" class="message-placeholder"></div>
+
                 <div class="button">
-                    <input type="submit" value="Register">
+                    <input type="submit" value="Register" data-i18n-key="register_button">
                 </div>
             </form>
         </div>
+
+        <!-- Copyright section -->
+        <div class="copyright">
+            <p>VAS Worms - Association of African Students and Alumni at University of Worms</p>
+            <p>&copy; 2025 VAS Association. All rights reserved.</p>
+        </div>
     </div>
+
+    <script src="i18n.js"></script>
 </body>
 
 </html>
