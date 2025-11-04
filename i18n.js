@@ -12,7 +12,7 @@ class I18n {
     async init() {
         // Force English on first load, ignore saved preference
         const isFirstVisit = !localStorage.getItem('hasVisitedBefore');
-        
+
         if (isFirstVisit) {
             // First time visitor - force English
             localStorage.setItem('hasVisitedBefore', 'true');
@@ -23,10 +23,10 @@ class I18n {
             const initialLocale = savedLocale && this.supportedLocales.includes(savedLocale)
                 ? savedLocale
                 : 'en'; // Default to English if no valid saved preference
-    
+
             await this.setLocale(initialLocale);
         }
-        
+
         this.setupEventListeners();
         this.setDefaultMessage();
     }
@@ -94,6 +94,7 @@ class I18n {
                 'status_error': '❌ Bitte wählen Sie Ihren Status aus.',
                 'student_fields_error': '❌ Bitte füllen Sie Hochschule und Studiengang aus.',
                 'worker_fields_error': '❌ Bitte geben Sie Ihren Beruf an.',
+                'photo_consent_error': '❌ Sie müssen der Veröffentlichung von Fotos und Videos zustimmen.',
                 'status_mismatch': '❌ Bitte überprüfen Sie Ihre Statusinformationen.'
             },
             'en': {
@@ -104,6 +105,7 @@ class I18n {
                 'status_error': '❌ Please select your status.',
                 'student_fields_error': '❌ Please fill in university and field of study.',
                 'worker_fields_error': '❌ Please enter your profession.',
+                'photo_consent_error': '❌ You must agree to the publication of photos and videos.',
                 'status_mismatch': '❌ Please check your status information.'
             },
             'fr': {
@@ -114,6 +116,7 @@ class I18n {
                 'status_error': '❌ Veuillez sélectionner votre statut.',
                 'student_fields_error': '❌ Veuillez remplir l\'université et la filière.',
                 'worker_fields_error': '❌ Veuillez indiquer votre profession.',
+                'photo_consent_error': '❌ Vous devez accepter la publication de photos et vidéos.',
                 'status_mismatch': '❌ Veuillez vérifier vos informations de statut.'
             }
         };
@@ -275,7 +278,7 @@ class I18n {
 
                 let isValid = true;
 
-                // Check basic required fields
+                // Check basic required fields including new ones
                 const requiredFields = registrationForm.querySelectorAll('[required]');
                 requiredFields.forEach(field => {
                     if (!field.value.trim()) {
@@ -284,7 +287,7 @@ class I18n {
                     }
                 });
 
-                // Check gender selection
+                // Check gender selection (now with 3 options)
                 const selectedGender = registrationForm.querySelector('input[name="gender"]:checked');
                 if (!selectedGender) {
                     isValid = false;
@@ -296,6 +299,17 @@ class I18n {
                 if (!selectedStatus) {
                     isValid = false;
                     this.showRadioError('status', this.getRadioErrorMessage('status_error'));
+                }
+
+                // Check both consent checkboxes
+                if (!registrationForm.querySelector('input[name="datenschutz"]').checked) {
+                    isValid = false;
+                    this.showMessage('datenschutz_error');
+                }
+
+                if (!registrationForm.querySelector('input[name="photo_consent"]').checked) {
+                    isValid = false;
+                    this.showMessage('photo_consent_error');
                 }
 
                 if (!isValid) {

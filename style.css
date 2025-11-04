@@ -313,6 +313,31 @@ form .button input:hover {
   border-radius: 5px;
 }
 
+/* Add to your existing CSS */
+.input-box.full-width {
+  width: 100%;
+}
+
+.datenschutz-details h3 {
+  color: #333;
+  margin-bottom: 15px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.datenschutz-details .datenschutz-content p {
+  margin-bottom: 12px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #555;
+}
+
+/* Style for the third gender option */
+#dot-3:checked ~ .category label .three {
+  background: #9b59b6;
+  border-color: #d9d9d9;
+}
+
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(-10px); }
   to { opacity: 1; transform: translateY(0); }

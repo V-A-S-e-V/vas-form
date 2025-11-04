@@ -12,7 +12,7 @@
     <div class="container">
         <!-- Language selector -->
         <div class="language-selector">
-            <label for="languageSelect"><span data-i18n-key="language">Sprache</span>: </label>
+            <label for="languageSelect"><span data-i18n-key="language">Language</span>: </label>
             <select id="languageSelect">
                 <option value="de">Deutsch</option>
                 <option value="en">English</option>
@@ -40,7 +40,7 @@
                     </div>
                     <div class="input-box">
                         <span class="details" data-i18n-key="email">Email</span>
-                        <input type="email" name="email" placeholder="Enter your email" required>
+                        <input type="email" name="email" placeholder="Enter your email (preferably Gmail)" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" required>
                     </div>
                     <div class="input-box">
                         <span class="details" data-i18n-key="phone_number">Phone Number</span>
@@ -50,12 +50,17 @@
                         <span class="details" data-i18n-key="nationality">Nationality</span>
                         <input type="text" name="nationality" placeholder="Enter your nationality" required>
                     </div>
+                    <div class="input-box">
+                        <span class="details" data-i18n-key="country_of_origin">Country of Origin</span>
+                        <input type="text" name="country_of_origin" placeholder="Enter your country of origin" required>
+                    </div>
                 </div>
 
                 <!-- Gender section - REQUIRED -->
                 <div class="gender-details" id="genderSection">
                     <input type="radio" name="gender" id="dot-1" value="male">
                     <input type="radio" name="gender" id="dot-2" value="female">
+                    <input type="radio" name="gender" id="dot-3" value="diverse">
                     <span class="gender-title" data-i18n-key="gender">Gender</span>
                     <div class="category">
                         <label for="dot-1">
@@ -65,6 +70,10 @@
                         <label for="dot-2">
                             <span class="dot two"></span>
                             <span class="gender" data-i18n-key="female">Female</span>
+                        </label>
+                        <label for="dot-3">
+                            <span class="dot three"></span>
+                            <span class="gender" data-i18n-key="diverse">Diverse</span>
                         </label>
                     </div>
                     <div class="radio-error" id="genderError"
@@ -92,7 +101,7 @@
                         style="display: none; color: #ff4444; font-size: 12px; margin-top: 5px;"></div>
                 </div>
 
-                <!-- Remove style="display: none;" from these divs -->
+                <!-- Student fields -->
                 <div class="dynamic-details" id="studentFields">
                     <div class="user-details">
                         <div class="input-box">
@@ -106,6 +115,7 @@
                     </div>
                 </div>
 
+                <!-- Worker fields -->
                 <div class="dynamic-details" id="workerFields">
                     <div class="user-details">
                         <div class="input-box">
@@ -115,13 +125,28 @@
                     </div>
                 </div>
 
+                <!-- Data Protection Section -->
                 <div class="datenschutz-details">
                     <div class="datenschutz-content">
-                        <p data-i18n-key="data_protection_text">I agree that photos from VAS events may be published on
-                            social media and confirm I am at least 18 years old.</p>
+                        <h3 data-i18n-key="data_protection_title">Data Protection Notice</h3>
+                        <p data-i18n-key="data_protection_text">I agree that my personal data may be stored and processed by Verein der Afrikanischen Studenten Worms (V.A.S) exclusively for the purpose of member administration, communication and association organization.</p>
+                        <p data-i18n-key="data_protection_revocation">I can revoke my consent at any time by email to info.vas.worms@gmail.com</p>
                         <label class="datenschutz-label">
                             <input type="checkbox" name="datenschutz" required>
-                            <span data-i18n-key="data_protection_agree">I agree to data protection terms</span>
+                            <span data-i18n-key="data_protection_agree">I agree to data protection terms *</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Photo Publication Consent -->
+                <div class="datenschutz-details">
+                    <div class="datenschutz-content">
+                        <h3 data-i18n-key="photo_consent_title">Consent for Publication of Photos and Videos</h3>
+                        <p data-i18n-key="photo_consent_text">I agree that photos and videos in which I am recognizable during events of Verein der Afrikanischen Studenten Worms (V.A.S) may be published for association purposes (e.g. website, social media).</p>
+                        <p data-i18n-key="photo_consent_revocation">This consent can be revoked at any time by email to info.vas.worms@gmail.com</p>
+                        <label class="datenschutz-label">
+                            <input type="checkbox" name="photo_consent" required>
+                            <span data-i18n-key="photo_consent_agree">I agree to the publication of photos and videos *</span>
                         </label>
                     </div>
                 </div>
