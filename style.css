@@ -410,6 +410,10 @@ form .button input:hover {
   padding: 10px;
 }
 
+.important_to_do{
+  color: #ff4444;
+  margin-left: -10px;
+}
 
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(-10px); }
