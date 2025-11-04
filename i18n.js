@@ -389,6 +389,50 @@ class I18n {
                 return false;
             });
         }
+
+        // Toggle functionality for datenschutz sections
+        this.setupToggleSections();
+    }
+
+    // New method for toggle functionality
+    setupToggleSections() {
+        const toggleButtons = document.querySelectorAll('.toggle-btn');
+
+        toggleButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = button.getAttribute('data-target');
+                const targetElement = document.getElementById(targetId);
+
+                if (targetElement) {
+                    // Toggle display
+                    if (targetElement.style.display === 'none') {
+                        targetElement.style.display = 'block';
+                        button.classList.add('active');
+                    } else {
+                        targetElement.style.display = 'none';
+                        button.classList.remove('active');
+                    }
+                }
+            });
+        });
+
+        // Optional: Auto-expand if user focuses on checkbox without reading
+        const consentCheckboxes = document.querySelectorAll('input[name="datenschutz"], input[name="photo_consent"]');
+        consentCheckboxes.forEach(checkbox => {
+            checkbox.addEventListener('focus', (e) => {
+                const datenschutzItem = e.target.closest('.datenschutz-details');
+                const textElement = datenschutzItem.querySelector('.datenschutz-text');
+                const toggleBtn = datenschutzItem.querySelector('.toggle-btn');
+
+                if (textElement && textElement.style.display === 'none') {
+                    textElement.style.display = 'block';
+                    if (toggleBtn) {
+                        toggleBtn.classList.add('active');
+                    }
+                }
+            });
+        });
     }
 
     // New helper methods for radio button validation

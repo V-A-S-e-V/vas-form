@@ -338,6 +338,78 @@ form .button input:hover {
   border-color: #d9d9d9;
 }
 
+/* Datenschutz collapsible sections */
+.datenschutz-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  cursor: pointer;
+}
+
+.datenschutz-header h3 {
+  margin: 0;
+  color: #333;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.toggle-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  font-size: 16px;
+  color: #9b59b6;
+  transition: all 0.3s ease;
+}
+
+.toggle-btn:hover {
+  color: #71b7e6;
+}
+
+.toggle-icon {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.toggle-btn.active .toggle-icon {
+  transform: rotate(180deg);
+}
+
+.datenschutz-text {
+  margin-bottom: 15px;
+  padding: 15px;
+  background: #f8f9fa;
+  border-radius: 5px;
+  border-left: 3px solid #9b59b6;
+  animation: fadeIn 0.3s ease;
+}
+
+.datenschutz-text p {
+  margin-bottom: 10px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #555;
+}
+
+.datenschutz-text p:last-child {
+  margin-bottom: 0;
+}
+
+
+/* Make the entire header clickable area larger */
+.datenschutz-header {
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.datenschutz-header:hover {
+  background-color: #f8f9fa;
+  border-radius: 5px;
+  padding: 10px;
+}
+
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(-10px); }
   to { opacity: 1; transform: translateY(0); }

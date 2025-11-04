@@ -40,7 +40,8 @@
                     </div>
                     <div class="input-box">
                         <span class="details" data-i18n-key="email">Email</span>
-                        <input type="email" name="email" placeholder="Enter your email (preferably Gmail)" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" required>
+                        <input type="email" name="email" placeholder="Enter your email (preferably Gmail)"
+                            pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" required>
                     </div>
                     <div class="input-box">
                         <span class="details" data-i18n-key="phone_number">Phone Number</span>
@@ -128,9 +129,19 @@
                 <!-- Data Protection Section -->
                 <div class="datenschutz-details">
                     <div class="datenschutz-content">
-                        <h3 data-i18n-key="data_protection_title">Data Protection Notice</h3>
-                        <p data-i18n-key="data_protection_text">I agree that my personal data may be stored and processed by Verein der Afrikanischen Studenten Worms (V.A.S) exclusively for the purpose of member administration, communication and association organization.</p>
-                        <p data-i18n-key="data_protection_revocation">I can revoke my consent at any time by email to info.vas.worms@gmail.com</p>
+                        <div class="datenschutz-header">
+                            <h3 data-i18n-key="data_protection_title">Data Protection Notice</h3>
+                            <button type="button" class="toggle-btn" data-target="dataProtectionText">
+                                <span class="toggle-icon">▼</span>
+                            </button>
+                        </div>
+                        <div class="datenschutz-text" id="dataProtectionText" style="display: none;">
+                            <p data-i18n-key="data_protection_text">I agree that my personal data may be stored and
+                                processed by Verein der Afrikanischen Studenten Worms (V.A.S) exclusively for the
+                                purpose of member administration, communication and association organization.</p>
+                            <p data-i18n-key="data_protection_revocation">I can revoke my consent at any time by email
+                                to info.vas.worms@gmail.com</p>
+                        </div>
                         <label class="datenschutz-label">
                             <input type="checkbox" name="datenschutz" required>
                             <span data-i18n-key="data_protection_agree">I agree to data protection terms *</span>
@@ -141,12 +152,23 @@
                 <!-- Photo Publication Consent -->
                 <div class="datenschutz-details">
                     <div class="datenschutz-content">
-                        <h3 data-i18n-key="photo_consent_title">Consent for Publication of Photos and Videos</h3>
-                        <p data-i18n-key="photo_consent_text">I agree that photos and videos in which I am recognizable during events of Verein der Afrikanischen Studenten Worms (V.A.S) may be published for association purposes (e.g. website, social media).</p>
-                        <p data-i18n-key="photo_consent_revocation">This consent can be revoked at any time by email to info.vas.worms@gmail.com</p>
+                        <div class="datenschutz-header">
+                            <h3 data-i18n-key="photo_consent_title">Consent for Publication of Photos and Videos</h3>
+                            <button type="button" class="toggle-btn" data-target="photoConsentText">
+                                <span class="toggle-icon">▼</span>
+                            </button>
+                        </div>
+                        <div class="datenschutz-text" id="photoConsentText" style="display: none;">
+                            <p data-i18n-key="photo_consent_text">I agree that photos and videos in which I am
+                                recognizable during events of Verein der Afrikanischen Studenten Worms (V.A.S) may be
+                                published for association purposes (e.g. website, social media).</p>
+                            <p data-i18n-key="photo_consent_revocation">This consent can be revoked at any time by email
+                                to info.vas.worms@gmail.com</p>
+                        </div>
                         <label class="datenschutz-label">
                             <input type="checkbox" name="photo_consent" required>
-                            <span data-i18n-key="photo_consent_agree">I agree to the publication of photos and videos *</span>
+                            <span data-i18n-key="photo_consent_agree">I agree to the publication of photos and videos
+                                *</span>
                         </label>
                     </div>
                 </div>
