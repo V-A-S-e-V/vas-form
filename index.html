@@ -24,15 +24,15 @@
         <div class="title" data-i18n-key="registration_title">VAS Worms Registration</div>
 
         <div class="content">
-            <form action="#" id="registrationForm">
+            <form action="#" id="registrationForm" novalidate>
                 <div class="user-details">
                     <div class="input-box">
                         <span class="details" data-i18n-key="first_name">First Name</span>
-                        <input type="text" name="first_name" placeholder="Enter your first name" required>
+                        <input type="text" name="first_name" data-placeholder-key="enter_first_name" required>
                     </div>
                     <div class="input-box">
                         <span class="details" data-i18n-key="last_name">Last Name</span>
-                        <input type="text" name="last_name" placeholder="Enter your last name" required>
+                        <input type="text" name="last_name" data-placeholder-key="enter_last_name" required>
                     </div>
                     <div class="input-box">
                         <span class="details" data-i18n-key="date_of_birth">Date of Birth</span>
@@ -40,20 +40,20 @@
                     </div>
                     <div class="input-box">
                         <span class="details" data-i18n-key="email">Email</span>
-                        <input type="email" name="email" placeholder="Enter your email (preferably Gmail)"
-                            pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" required>
+                        <input type="email" name="email" data-placeholder-key="enter_email_gmail" 
+                               pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" required>
                     </div>
                     <div class="input-box">
                         <span class="details" data-i18n-key="phone_number">Phone Number</span>
-                        <input type="tel" name="phone_number" placeholder="Enter your number" required>
+                        <input type="tel" name="phone_number" data-placeholder-key="enter_phone_number" required>
                     </div>
                     <div class="input-box">
                         <span class="details" data-i18n-key="nationality">Nationality</span>
-                        <input type="text" name="nationality" placeholder="Enter your nationality" required>
+                        <input type="text" name="nationality" data-placeholder-key="enter_nationality" required>
                     </div>
                     <div class="input-box">
                         <span class="details" data-i18n-key="country_of_origin">Country of Origin</span>
-                        <input type="text" name="country_of_origin" placeholder="Enter your country of origin" required>
+                        <input type="text" name="country_of_origin" data-placeholder-key="enter_country_origin" required>
                     </div>
                 </div>
 
@@ -107,11 +107,11 @@
                     <div class="user-details">
                         <div class="input-box">
                             <span class="details" data-i18n-key="university">University</span>
-                            <input type="text" name="university" placeholder="Enter your university">
+                            <input type="text" name="university" data-placeholder-key="enter_university">
                         </div>
                         <div class="input-box">
                             <span class="details" data-i18n-key="field_of_study">Field of Study</span>
-                            <input type="text" name="field_of_study" placeholder="Enter your field of study">
+                            <input type="text" name="field_of_study" data-placeholder-key="enter_field_study">
                         </div>
                     </div>
                 </div>
@@ -121,7 +121,7 @@
                     <div class="user-details">
                         <div class="input-box">
                             <span class="details" data-i18n-key="profession">Profession</span>
-                            <input type="text" name="profession" placeholder="Enter your profession">
+                            <input type="text" name="profession" data-placeholder-key="enter_profession">
                         </div>
                     </div>
                 </div>

@@ -26,5 +26,14 @@
   "photo_consent_text": "I agree that photos and videos in which I am recognizable during events of Verein der Afrikanischen Studenten Worms (V.A.S) may be published for association purposes (e.g. website, social media).",
   "photo_consent_revocation": "This consent can be revoked at any time by email to info.vas.worms@gmail.com",
   "photo_consent_agree": "I agree to the publication of photos and videos *",
-  "register_button": "Register"
+  "register_button": "Register",
+  "enter_first_name": "Enter your first name",
+  "enter_last_name": "Enter your last name",
+  "enter_email_gmail": "Preferably @gmail.com",
+  "enter_phone_number": "Enter your number",
+  "enter_nationality": "Enter your nationality",
+  "enter_country_origin": "Enter your country of origin",
+  "enter_university": "Enter your university",
+  "enter_field_study": "Enter your field of study",
+  "enter_profession": "Enter your profession"
 }

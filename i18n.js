@@ -185,6 +185,21 @@ class I18n {
                 }
             }
         });
+
+        // Translate all placeholder texts
+        this.translatePlaceholders();
+    }
+
+    // New method to translate placeholders
+    translatePlaceholders() {
+        document.querySelectorAll("input[data-placeholder-key]").forEach(input => {
+            const placeholderKey = input.getAttribute("data-placeholder-key");
+            const translation = this.translations[placeholderKey];
+            
+            if (translation !== undefined) {
+                input.placeholder = translation;
+            }
+        });
     }
 
     updateLanguageSelector() {
