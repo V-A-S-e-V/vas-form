@@ -284,8 +284,6 @@ class I18n {
         const registrationForm = document.getElementById('registrationForm');
         if (registrationForm) {
             registrationForm.addEventListener('submit', (e) => {
-                e.preventDefault();
-                e.stopPropagation();
 
                 // Reset all errors and field borders
                 this.resetFieldBorders();
@@ -329,7 +327,8 @@ class I18n {
 
                 if (!isValid) {
                     this.showMessage('fields_error');
-                    return false;
+                    e.preventDefault();
+                    return;
                 }
 
                 // Check age
@@ -341,13 +340,15 @@ class I18n {
 
                 if (age < 18 || isExactly18) {
                     this.showMessage('age_error');
-                    return false;
+                    e.preventDefault();
+                    return;
                 }
 
                 // Check data protection
                 if (!registrationForm.querySelector('input[name="datenschutz"]').checked) {
                     this.showMessage('datenschutz_error');
-                    return false;
+                     e.preventDefault();
+                    return;
                 }
 
                 // Validate status-specific fields
@@ -391,17 +392,15 @@ class I18n {
                 }
 
                 if (!statusValid) {
-                    return false;
+                     e.preventDefault();
+                    return;
                 }
 
                 // If everything is valid
-                this.showMessage('success');
-                console.log('Form submitted successfully with data:', this.getFormData());
 
                 // Here you would typically send the data to your backend
                 // registrationForm.submit(); // Uncomment when backend is ready
 
-                return false;
             });
         }
 
