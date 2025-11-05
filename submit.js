@@ -64,8 +64,13 @@ form.addEventListener("submit", async (e) => {
     .from("members")
     .insert([payload], { returning: "minimal" });
 
-  if (!error) {
+  if (error) {
+    window.i18n?.showMessage("submit_error");
+    console.error(error); 
+    return;
+  }
+  
     showSuccess();
     form.reset();
-  }
+  
 });
