@@ -11,7 +11,7 @@ form.addEventListener("submit", async (e) => {
   const payload = {
     first_name: data.first_name,
     last_name: data.last_name,
-    birthday: data.birthday || null,
+    birthday: data.date_of_birth || null,
     gender: data.gender || null,
     nationality: data.nationality,
     country_of_origin: data.country_of_origin,
@@ -19,8 +19,11 @@ form.addEventListener("submit", async (e) => {
     phone_number: data.phone_number,
     status: data.status,
     field_of_study: data.field_of_study || null,
+    university: data.university || null,
+    profession: data.profession || null,
     work_location: data.work_location || null,
-    data_consent: data.data_consent === "on" ? true : false,
+    data_consent: data.datenschutz === "on" ? true : false,
+    photo_consent: data.photo_consent === "on" ? true : false,
   };
 
   if (!payload.data_consent) {
