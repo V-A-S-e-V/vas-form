@@ -95,7 +95,8 @@ class I18n {
                 'student_fields_error': '❌ Bitte füllen Sie Hochschule und Studiengang aus.',
                 'worker_fields_error': '❌ Bitte geben Sie Ihren Beruf an.',
                 'photo_consent_error': '❌ Sie müssen der Veröffentlichung von Fotos und Videos zustimmen.',
-                'status_mismatch': '❌ Bitte überprüfen Sie Ihre Statusinformationen.'
+                'status_mismatch': '❌ Bitte überprüfen Sie Ihre Statusinformationen.',
+                'submit_error': '❌ Senden fehlgeschlagen. Bitte versuchen Sie es erneut.'
             },
             'en': {
                 'success': '✅ Registration successful! Thank you for signing up.',
@@ -106,7 +107,8 @@ class I18n {
                 'student_fields_error': '❌ Please fill in university and field of study.',
                 'worker_fields_error': '❌ Please enter your profession.',
                 'photo_consent_error': '❌ You must agree to the publication of photos and videos.',
-                'status_mismatch': '❌ Please check your status information.'
+                'status_mismatch': '❌ Please check your status information.',
+                'submit_error': '❌ Submission failed. Please try again.'
             },
             'fr': {
                 'success': '✅ Inscription réussie ! Merci de vous être inscrit.',
@@ -117,7 +119,8 @@ class I18n {
                 'student_fields_error': '❌ Veuillez remplir l\'université et la filière.',
                 'worker_fields_error': '❌ Veuillez indiquer votre profession.',
                 'photo_consent_error': '❌ Vous devez accepter la publication de photos et vidéos.',
-                'status_mismatch': '❌ Veuillez vérifier vos informations de statut.'
+                'status_mismatch': '❌ Veuillez vérifier vos informations de statut.',
+                'submit_error': '❌ L’envoi a échoué. Veuillez réessayer.'
             }
         };
 
