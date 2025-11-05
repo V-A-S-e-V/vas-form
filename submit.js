@@ -1,43 +1,71 @@
 import { supabase } from "./supabaseClient.js";
 
 const form = document.getElementById("registrationForm");
+const msg = document.getElementById("messagePlaceholder");
+
+const MESSAGES = {
+  fr: { success: "Inscription réussie ✅" },
+  en: { success: "Registration successful ✅" },
+  de: { success: "Erfolgreiche Anmeldung ✅" },
+};
+
+function showSuccess() {
+  const langSelect = document.getElementById("languageSelect");
+  const lang = langSelect ? langSelect.value : "en";
+
+  const text =
+    (MESSAGES[lang] && MESSAGES[lang].success) ||
+    MESSAGES.en.success;
+
+  if (!msg) return;
+
+  msg.textContent = text;
+  msg.style.marginTop = "12px";
+  msg.style.fontSize = "14px";
+  msg.style.padding = "10px";
+  msg.style.borderRadius = "8px";
+  msg.style.background = "#e8f5ee";
+  msg.style.color = "#0a7a3b";
+  msg.style.border = "1px solid #b9e2c8";
+}
 
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
 
-  const formData = new FormData(form);
-  const data = Object.fromEntries(formData.entries());
-
-  const payload = {
-    first_name: data.first_name,
-    last_name: data.last_name,
-    birthday: data.date_of_birth || null,
-    gender: data.gender || null,
-    nationality: data.nationality,
-    country_of_origin: data.country_of_origin,
-    email: data.email,
-    phone_number: data.phone_number,
-    status: data.status,
-    field_of_study: data.field_of_study || null,
-    university: data.university || null,
-    profession: data.profession || null,
-    work_location: data.work_location || null,
-    data_consent: data.datenschutz === "on" ? true : false,
-    photo_consent: data.photo_consent === "on" ? true : false,
-  };
-
-  if (!payload.data_consent) {
-    alert("Veuillez accepter la protection des données.");
+  if (!form.checkValidity()) {
+    form.reportValidity();
     return;
   }
 
-  const { error } = await supabase.from("members").insert([payload]);
+  const data = Object.fromEntries(new FormData(form).entries());
 
-  if (error) {
-    console.log(error);
-    alert("Erreur lors de l'inscription.");
-  } else {
-    alert("Inscription réussie ✅");
+  const payload = {
+    first_name: data.first_name?.trim(),
+    last_name: data.last_name?.trim(),
+    birthday: data.date_of_birth || null,
+    gender: data.gender || null,
+    nationality: data.nationality?.trim(),
+    country_of_origin: data.country_of_origin?.trim(),
+    email: data.email?.trim(),
+    phone_number: data.phone_number?.trim(),
+    status: data.status || null,
+
+    field_of_study: data.field_of_study?.trim() || null,
+    university: data.university?.trim() || null,
+
+    profession: data.profession?.trim() || null,
+    work_location: data.work_location?.trim() || null,
+
+    data_consent: data.datenschutz === "on",
+    photo_consent: data.photo_consent === "on",
+  };
+
+  const { error } = await supabase
+    .from("members")
+    .insert([payload], { returning: "minimal" });
+
+  if (!error) {
+    showSuccess();
     form.reset();
   }
 });
