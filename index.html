@@ -20,8 +20,11 @@
             </select>
         </div>
 
-        <!-- Title section -->
-        <div class="title" data-i18n-key="registration_title">VAS Worms Registration</div>
+        <!-- Logo and Title Section -->
+        <div class="logo-header">
+            <img src="images/VAS_logo.png" alt="VAS Logo" class="logo">
+            <div class="title" data-i18n-key="registration_title">VAS Worms Registration</div>
+        </div>
 
         <div class="content">
             <form action="#" id="registrationForm" novalidate>
@@ -48,11 +51,31 @@
                     </div>
                     <div class="input-box">
                         <span class="details" data-i18n-key="nationality">Nationality</span>
-                        <input type="text" name="nationality" data-placeholder-key="enter_nationality" required>
+
+                        <div class="country-dropdown" id="nationality-dropdown">
+                            <button type="button" class="cd-selected" id="nat-selected" aria-haspopup="listbox" aria-expanded="false">Loading countries...</button>
+                            <div class="cd-list-wrap" id="nat-list-wrap" hidden>
+                                <input type="search" class="cd-search" id="nat-search" placeholder="Search country..." aria-label="Search country">
+                                <ul class="cd-list" id="nat-list" role="listbox" tabindex="-1"></ul>
+                            </div>
+                        </div>
+
+                        <input type="hidden" name="nationality" id="nationality-input" required>
+                        <input type="hidden" name="nationality_code" id="nationality-code">
                     </div>
-                    <div class="input-box">
+                    <div class="input-box full-width">
                         <span class="details" data-i18n-key="country_of_origin">Country of Origin</span>
-                        <input type="text" name="country_of_origin" data-placeholder-key="enter_country_origin" required>
+
+                        <div class="country-dropdown" id="country-origin-dropdown">
+                            <button type="button" class="cd-selected" id="cd-selected" aria-haspopup="listbox" aria-expanded="false">Loading countries...</button>
+                            <div class="cd-list-wrap" id="cd-list-wrap" hidden>
+                                <input type="search" class="cd-search" id="cd-search" placeholder="Search country..." aria-label="Search country">
+                                <ul class="cd-list" id="cd-list" role="listbox" tabindex="-1"></ul>
+                            </div>
+                        </div>
+
+                        <input type="hidden" name="country_of_origin" id="country-origin-input" required>
+                        <input type="hidden" name="country_code" id="country-origin-code">
                     </div>
                 </div>
 
@@ -191,6 +214,7 @@
 
     <script src="i18n.js"></script>
     <script type="module" src="supabaseClient.js"></script>
+    <script type="module" src="countries.js"></script>
     <script type="module" src="submit.js"></script>
 
 </body>
