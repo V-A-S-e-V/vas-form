@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VAS Worms Registration</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Language selector -->
+        <div class="language-selector">
+            <label for="languageSelect"><span data-i18n-key="language">Language</span>: </label>
+            <select id="languageSelect">
+                <option value="de">Deutsch</option>
+                <option value="en">English</option>
+                <option value="fr">Français</option>
+            </select>
+        </div>
+
+        <!-- Title section -->
+        <div class="title" data-i18n-key="registration_title">VAS Worms Registration</div>
+
+        <div class="content">
+            <form action="#" id="registrationForm" novalidate>
+                <div class="user-details">
+                    <div class="input-box">
+                        <span class="details" data-i18n-key="first_name">First Name</span>
+                        <input type="text" name="first_name" data-placeholder-key="enter_first_name" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details" data-i18n-key="last_name">Last Name</span>
+                        <input type="text" name="last_name" data-placeholder-key="enter_last_name" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details" data-i18n-key="date_of_birth">Date of Birth</span>
+                        <input type="date" name="date_of_birth" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details" data-i18n-key="email">Email</span>
+                        <input type="email" name="email" data-placeholder-key="enter_email_gmail" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details" data-i18n-key="phone_number">Phone Number</span>
+                        <input type="tel" name="phone_number" data-placeholder-key="enter_phone_number" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details" data-i18n-key="nationality">Nationality</span>
+                        <input type="text" name="nationality" data-placeholder-key="enter_nationality" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details" data-i18n-key="country_of_origin">Country of Origin</span>
+                        <input type="text" name="country_of_origin" data-placeholder-key="enter_country_origin" required>
+                    </div>
+                </div>
+
+                <!-- Gender section - REQUIRED -->
+                <div class="gender-details" id="genderSection">
+                    <input type="radio" name="gender" id="dot-1" value="male">
+                    <input type="radio" name="gender" id="dot-2" value="female">
+                    <input type="radio" name="gender" id="dot-3" value="diverse">
+                    <span class="gender-title" data-i18n-key="gender">Gender</span>
+                    <div class="category">
+                        <label for="dot-1">
+                            <span class="dot one"></span>
+                            <span class="gender" data-i18n-key="male">Male</span>
+                        </label>
+                        <label for="dot-2">
+                            <span class="dot two"></span>
+                            <span class="gender" data-i18n-key="female">Female</span>
+                        </label>
+                        <label for="dot-3">
+                            <span class="dot three"></span>
+                            <span class="gender" data-i18n-key="diverse">Diverse</span>
+                        </label>
+                    </div>
+                    <div class="radio-error" id="genderError"
+                        style="display: none; color: #ff4444; font-size: 12px; margin-top: 5px;"></div>
+                </div>
+
+                <!-- Status section - REQUIRED -->
+                <div class="status-details" id="statusSection">
+                    <span class="status-title" data-i18n-key="status">Status</span>
+                    <div class="status-category">
+                        <input type="radio" name="status" id="status-1" value="student">
+                        <input type="radio" name="status" id="status-2" value="worker">
+                        <div class="status-options">
+                            <label for="status-1">
+                                <span class="status-dot one"></span>
+                                <span class="status-label" data-i18n-key="student">Student</span>
+                            </label>
+                            <label for="status-2">
+                                <span class="status-dot two"></span>
+                                <span class="status-label" data-i18n-key="worker">Worker</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="radio-error" id="statusError"
+                        style="display: none; color: #ff4444; font-size: 12px; margin-top: 5px;"></div>
+                </div>
+
+                <!-- Student fields -->
+                <div class="dynamic-details" id="studentFields">
+                    <div class="user-details">
+                        <div class="input-box">
+                            <span class="details" data-i18n-key="university">University</span>
+                            <input type="text" name="university" data-placeholder-key="enter_university">
+                        </div>
+                        <div class="input-box">
+                            <span class="details" data-i18n-key="field_of_study">Field of Study</span>
+                            <input type="text" name="field_of_study" data-placeholder-key="enter_field_study">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Worker fields -->
+                <div class="dynamic-details" id="workerFields">
+                    <div class="user-details">
+                        <div class="input-box">
+                            <span class="details" data-i18n-key="profession">Profession</span>
+                            <input type="text" name="profession" data-placeholder-key="enter_profession">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Data Protection Section -->
+                <div class="datenschutz-details">
+                    <div class="datenschutz-content">
+                        <div class="datenschutz-header">
+                            <h3 data-i18n-key="data_protection_title">Data Protection Notice</h3>
+                            <button type="button" class="toggle-btn" data-target="dataProtectionText">
+                                <span class="toggle-icon">▼</span>
+                            </button>
+                        </div>
+                        <div class="datenschutz-text" id="dataProtectionText" style="display: none;">
+                            <p data-i18n-key="data_protection_text">I agree that my personal data may be stored and
+                                processed by Verein der Afrikanischen Studenten Worms (V.A.S) exclusively for the
+                                purpose of member administration, communication and association organization.</p>
+                            <p data-i18n-key="data_protection_revocation">I can revoke my consent at any time by email
+                                to info.vas.worms@gmail.com</p>
+                        </div>
+                        <label class="datenschutz-label">
+                            <input type="checkbox" name="datenschutz" required>
+                            <span data-i18n-key="data_protection_agree">I agree to data protection terms</span>
+                            <span class="important_to_do">*</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Photo Publication Consent -->
+                <div class="datenschutz-details">
+                    <div class="datenschutz-content">
+                        <div class="datenschutz-header">
+                            <h3 data-i18n-key="photo_consent_title">Consent for Publication of Photos and Videos</h3>
+                            <button type="button" class="toggle-btn" data-target="photoConsentText">
+                                <span class="toggle-icon">▼</span>
+                            </button>
+                        </div>
+                        <div class="datenschutz-text" id="photoConsentText" style="display: none;">
+                            <p data-i18n-key="photo_consent_text">I agree that photos and videos in which I am
+                                recognizable during events of Verein der Afrikanischen Studenten Worms (V.A.S) may be
+                                published for association purposes (e.g. website, social media).</p>
+                            <p data-i18n-key="photo_consent_revocation">This consent can be revoked at any time by email
+                                to info.vas.worms@gmail.com</p>
+                        </div>
+                        <label class="datenschutz-label">
+                            <input type="checkbox" name="photo_consent" required>
+                            <span data-i18n-key="photo_consent_agree">I agree to the publication of photos and videos
+                            </span> <span class="important_to_do">*</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Message placeholder -->
+                <div id="messagePlaceholder" class="message-placeholder"></div>
+
+                <div class="button">
+                    <input type="submit" value="Register" data-i18n-key="register_button">
+                </div>
+            </form>
+        </div>
+
+        <!-- Copyright section -->
+        <div class="copyright">
+            <p>VAS Worms - Association of African Students and Alumni at University of Worms</p>
+            <p>&copy; 2025 VAS Association. All rights reserved.</p>
+        </div>
+    </div>
+
+    <script src="i18n.js"></script>
+    <script type="module" src="supabaseClient.js"></script>
+    <script type="module" src="submit.js"></script>
+
+</body>
+
+</html>
