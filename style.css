@@ -175,8 +175,8 @@ form .category label .dot {
 }
 #dot-1:checked ~ .category label .one,
 #dot-2:checked ~ .category label .two {
-  background: var(--vas-gold);
-  border-color: #d9d9d9;
+  background: var(--vas-dark-blue);
+  border-color: var(--vas-dark-blue);
 }
 
 form .status-details .status-title {
@@ -208,8 +208,8 @@ form .status-options label .status-dot {
 }
 #status-1:checked ~ .status-options label .one,
 #status-2:checked ~ .status-options label .two {
-  background: var(--vas-gold);
-  border-color: #d9d9d9;
+  background: var(--vas-dark-blue);
+  border-color: var(--vas-dark-blue);
 }
 
 .dynamic-details {
@@ -383,8 +383,8 @@ form .button input:hover {
 
 /* Style for the third gender option */
 #dot-3:checked ~ .category label .three {
-  background: var(--vas-gold);
-  border-color: #d9d9d9;
+  background: var(--vas-dark-blue);
+  border-color: var(--vas-dark-blue);
 }
 
 /* Datenschutz collapsible sections */
