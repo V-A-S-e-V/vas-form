@@ -66,7 +66,17 @@ form.addEventListener("submit", async (e) => {
 
   if (error) {
     window.i18n?.showMessage("submit_error");
-    console.error(error); 
+    const errorDetail = error.message || error.details || JSON.stringify(error);
+    const msgEl = document.getElementById("messagePlaceholder");
+    if (msgEl && errorDetail) {
+      const detail = document.createElement("div");
+      detail.style.marginTop = "6px";
+      detail.style.fontSize = "12px";
+      detail.style.opacity = "0.75";
+      detail.textContent = errorDetail;
+      msgEl.appendChild(detail);
+    }
+    console.error(error);
     return;
   }
   
