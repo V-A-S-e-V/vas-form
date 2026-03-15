@@ -212,6 +212,21 @@
         </div>
     </div>
 
+    <!-- Popup modal (success & error) -->
+    <div id="errorModal" class="error-modal-overlay" hidden>
+        <div class="error-modal" role="alertdialog" aria-modal="true" aria-labelledby="errorModalTitle">
+            <div id="errorModalHeader" class="error-modal-header">
+                <span id="errorModalTitle" class="error-modal-title"></span>
+                <button type="button" class="error-modal-close" id="errorModalClose" aria-label="Fermer">&times;</button>
+            </div>
+            <div class="error-modal-body">
+                <p id="errorModalMessage"></p>
+                <p id="errorModalDetail" class="error-modal-detail"></p>
+                <div id="errorModalGuidance" class="error-modal-guidance"></div>
+            </div>
+        </div>
+    </div>
+
     <script src="i18n.js"></script>
     <script type="module" src="supabaseClient.js"></script>
     <script type="module" src="countries.js"></script>
