@@ -2,6 +2,7 @@ import { ALL_COUNTRIES, AFRICAN_COUNTRIES } from './countries-data.js';
 
 // Fetch countries for the dropdowns using a local static dataset.
 // This avoids CORS issues from the public API and works in a plain browser static site.
+// All countries are also available in a local static dataset.
 const STORAGE_KEY = "vas_african_countries_v1";
 const ALL_STORAGE_KEY = "vas_all_countries_v1";
 const CACHE_TTL_MS = 1000 * 60 * 60 * 24 * 7; // 7 days
