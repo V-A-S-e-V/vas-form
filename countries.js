@@ -1,8 +1,7 @@
-// Fetch African countries from Rest Countries API and populate the #country-origin select.
-// Caching: store in localStorage for 7 days to avoid repeated network calls.
+import { ALL_COUNTRIES, AFRICAN_COUNTRIES } from './countries-data.js';
 
-const API_URL = "https://restcountries.com/v3.1/region/africa?fields=name,cca2,flags";
-const ALL_API_URL = "https://restcountries.com/v3.1/all?fields=name,cca2,flags";
+// Fetch countries for the dropdowns using a local static dataset.
+// This avoids CORS issues from the public API and works in a plain browser static site.
 const STORAGE_KEY = "vas_african_countries_v1";
 const ALL_STORAGE_KEY = "vas_all_countries_v1";
 const CACHE_TTL_MS = 1000 * 60 * 60 * 24 * 7; // 7 days
@@ -57,18 +56,7 @@ async function fetchCountries() {
   const cached = getCachedCountries();
   if (cached) return cached;
 
-  const res = await fetch(API_URL);
-  if (!res.ok) throw new Error(`Failed to fetch countries: ${res.status}`);
-  const data = await res.json();
-
-  // map to simple objects
-  const mapped = data.map((c) => ({
-    name: c.name?.common || c.name?.official || c.cca2,
-    code: (c.cca2 || '').toUpperCase(),
-    flag: c.flags?.svg || c.flags?.png || '',
-  }));
-
-  const sorted = sortCountries(mapped);
+  const sorted = sortCountries([...AFRICAN_COUNTRIES]);
   setCachedCountries(sorted);
   return sorted;
 }
@@ -77,17 +65,7 @@ async function fetchAllCountries() {
   const cached = getCachedAllCountries();
   if (cached) return cached;
 
-  const res = await fetch(ALL_API_URL);
-  if (!res.ok) throw new Error(`Failed to fetch all countries: ${res.status}`);
-  const data = await res.json();
-
-  const mapped = data.map((c) => ({
-    name: c.name?.common || c.name?.official || c.cca2,
-    code: (c.cca2 || '').toUpperCase(),
-    flag: c.flags?.svg || c.flags?.png || '',
-  }));
-
-  const sorted = sortCountries(mapped);
+  const sorted = sortCountries([...ALL_COUNTRIES]);
   setCachedAllCountries(sorted);
   return sorted;
 }
